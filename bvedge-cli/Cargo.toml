@@ -1,0 +1,13 @@
+[package]
+name = "bvedge-cli"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+candle-core = {workspace = true}
+candle-nn = {workspace = true}
+candle-transformers = {workspace = true}
+
+clap = { version = "4.3", features = ["derive"] }
+bvedge-core = { path = "../bvedge-core" }
+gtars = { version = "^0.5.1", features = ["tokenizers"] }

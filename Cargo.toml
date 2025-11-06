@@ -1,0 +1,8 @@
+[workspace]
+members = [ "bvedge-cli","bvedge-core"]
+resolver = "2"
+
+[workspace.dependencies]
+candle-core = {version = "0.8"}
+candle-nn = { version = "0.8" }
+candle-transformers = { version = "0.8" }

@@ -1,0 +1,18 @@
+[package]
+name = "bvedge-core"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+candle-core = {workspace = true}
+candle-nn = {workspace = true}
+candle-transformers = {workspace = true}
+
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0" }
+hf-hub = { version = "0.3" }
+
+[features]
+default = []
+# cuda = ["candle-core/cuda"]
+# metal = ["candle-core/metal"]  # For Apple Silicon
