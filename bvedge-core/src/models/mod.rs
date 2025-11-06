@@ -1,8 +1,8 @@
 pub mod atacformer;
-pub mod weight_mapper;
 pub mod embedding;
-pub mod registry;
 pub mod loader;
+pub mod registry;
+pub mod weight_mapper;
 
 // re-export models
 pub use atacformer::AtacformerForCellClustering;

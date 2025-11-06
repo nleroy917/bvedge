@@ -4,7 +4,7 @@
 //! Each model type implements the `FromPretrained` trait to define its own loading logic.
 
 use candle_core::{Device, Result};
-use hf_hub::{api::sync::Api, Repo, RepoType};
+use hf_hub::{Repo, RepoType, api::sync::Api};
 use std::path::PathBuf;
 
 /// Trait for models that can be loaded from HuggingFace Hub
@@ -55,15 +55,12 @@ impl HubLoader {
     pub fn download_file(&self, repo_id: &str, filename: &str) -> Result<PathBuf> {
         let repo = Repo::new(repo_id.to_string(), RepoType::Model);
 
-        self.api
-            .repo(repo)
-            .get(filename)
-            .map_err(|e| {
-                candle_core::Error::Msg(format!(
-                    "Failed to download {} from {}: {}",
-                    filename, repo_id, e
-                ))
-            })
+        self.api.repo(repo).get(filename).map_err(|e| {
+            candle_core::Error::Msg(format!(
+                "Failed to download {} from {}: {}",
+                filename, repo_id, e
+            ))
+        })
     }
 
     /// Download multiple files from a HuggingFace repository

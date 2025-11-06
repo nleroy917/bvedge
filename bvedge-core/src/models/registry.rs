@@ -2,10 +2,10 @@
 //!
 //! This is the centralized location that keeps track of models that we support
 //! from our huggingface organization
-use candle_core::{Device, Result};
 use crate::models::atacformer::AtacformerForCellClustering;
-use crate::models::loader::FromPretrained;
 use crate::models::embedding::EncodeTokenizedRegions;
+use crate::models::loader::FromPretrained;
+use candle_core::{Device, Result};
 
 /// Enum of models supported by bvedge
 #[derive(Debug, Clone, Copy)]
